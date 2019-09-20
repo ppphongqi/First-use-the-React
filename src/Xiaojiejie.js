@@ -23,9 +23,13 @@ class Xiaojiejie extends Component{
                     {
                         this.state.list.map((item,index)=>{
                             return (
-                                <div>
-                                    <XiaojiejieItem/>
-                                </div>
+
+                                    <XiaojiejieItem
+                                        key={index+item}
+                                        index={index}
+                                        deleteItem = {this.deleteItem.bind(this)}
+                                        content={item} />
+
                             )
                         })
                     }
