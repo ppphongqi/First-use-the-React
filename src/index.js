@@ -1,7 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 // import App from './App'
-import Xiaojiejie from './Xiaojiejie'
+import TodoApp from './TodoApp'
 
 
-ReactDOM.render(<Xiaojiejie /> , document.getElementById('root'))
+ReactDOM.render(
+    <Provider store={store}>
+        <TodoApp />
+    </Provider> ,
+    document.getElementById('root')
+);
