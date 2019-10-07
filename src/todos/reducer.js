@@ -1,5 +1,5 @@
 import{ADD_TODO ,TOGGLE_TODO , REMOVE_TODO} from "./actionsTypes";
-import {toggleToDO} from "./action";
+
 
 export default (state = [] , action)=>{
     switch(action.type){
@@ -11,7 +11,7 @@ export default (state = [] , action)=>{
                 },
                 ...state
             ]
-        };
+        }
         case TOGGLE_TODO:{
             return state.map((todoItem)=>{
                 if(todoItem.id === action.id){
@@ -20,12 +20,12 @@ export default (state = [] , action)=>{
                     return todoItem;
                 }
             })
-        };
+        }
         case REMOVE_TODO:{
             return state.filter((todoItem)=>{
-                return todoItem.id != action.id;
+                return todoItem.id !== action.id;
             })
-        };
+        }
         default:{
             return state;
         }
