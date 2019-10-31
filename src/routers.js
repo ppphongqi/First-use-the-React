@@ -7,11 +7,23 @@ import About from '../src/pages/About';
 import Home from '../src/pages/Home';
 import NotFound from '../src/pages/NotFound';
 
+import store from './store.js';
+import {Provider} from 'react-redux';
+import {syncHistoryWithStore} from 'react-router-redux';
 
-const history = browserHistory;
+
+const createElement = (Component , props) =>{
+    return (
+        <Provider store={store}>
+            <Component {...props} />
+        </Provider>
+    );
+};
+
+const history = syncHistoryWithStore(browserHistory , store);
 
 const Routes = () =>(
-    <Router history={history} >
+    <Router history={history}  createElement = {createElement}>
         <Route path = "/" component = {App}>
             <IndexRoute component={Home} />
             <Route path="home" component={Home} />
