@@ -6,6 +6,7 @@ import App from '../src/pages/App';
 import About from '../src/pages/About';
 import Home from '../src/pages/Home';
 import NotFound from '../src/pages/NotFound';
+import TestContext from '../src/pages/Context';
 
 import store from './store.js';
 import {Provider} from 'react-redux';
@@ -28,6 +29,7 @@ const Routes = () =>(
             <IndexRoute component={Home} />
             <Route path="home" component={Home} />
             <Route path="about" component={About}/>
+            <Route path="context" component={TestContext}/>
             <Route path="*" component={NotFound} />
         </Route>
     </Router>
