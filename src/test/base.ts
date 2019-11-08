@@ -195,3 +195,70 @@ function reverse(x:number | string) : number | string{
         return x.split('').reverse().join('');
     }
 }
+
+//三斜线指令 描述模块之间的依赖关系
+//书写一个全局变量的声明文件
+//依赖一个全局变量的声明文件
+
+//内置对象
+//根据标准在全局作用域（global）上存在的对象
+let b:Boolean = new Boolean(1);
+let e:Error = new Error('Error occurred!');
+let d:Date = new Date();
+let r:RegExp = /[a-z]/;
+//DOM和DOM的内置对象
+//Document HTMLElement Event NodeList
+
+let body : HTMLElement = document.body;
+let allDiv : NodeList = document.querySelectorAll('div');
+document.addEventListener('click',function(e:MouseEvent){
+    //Do Something
+})
+
+type YouName = string;
+type NameOrResolver = () => string
+
+function getYouName(n:NameOrResolver) : YouName{
+    if (typeof n === 'string'){
+        return n
+    }else{
+        return n()
+    }
+};
+
+type EventNames = 'click'| 'scroll'| 'mousemove';
+function  handleEvent(ele:Element , event:EventNames){
+    //do Something
+}
+
+handleEvent(document.getElementById('hello') , 'scroll');
+handleEvent(document.getElementById('world') , 'click');
+
+
+let tomm :[string , number ] = ['tomm',25];
+
+let tommy :[string, number] ;
+
+tommy[0] = 'tommy';
+
+tommy[1] = 25;
+
+tommy[0].slice(1);
+
+tommy[1].toFixed(2);
+
+enum Days {Sun , Mon , Tue , Wed , Thu , Fri , Sat }
+
+enum Color { Red , Green , Blue = 'blue'.length }
+//枚举项有两种类型，常数项和计算所得项
+
+const enum Directionss{
+    Up,
+    Lift,
+    Right,
+    Down
+}
+
+let directionss = [Directionss.Down]
+
+//declare定义的类型只会用于编译时的检查，编译结果中会被删除；
